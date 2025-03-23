@@ -12,7 +12,7 @@ header {
     align-items: center;
     background-color: #ffffff;
     padding: 10px 20px;
-    height: auto; /* Altura automática para se ajustar ao conteúdo */
+    height: auto; 
     position: relative;
 }
 
@@ -35,18 +35,33 @@ nav a {
     font-weight: bold;
 }
 
-/* Menu hamburguer */
-.menu-toggle {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-}
+@media (max-width: 480px) {
+    .logo img {
+        width: 60px; /* Reduz ainda mais o tamanho para telas muito pequenas */
+        height: 60px; /* Mantenha o mesmo valor que a largura para ficar quadrado */
+    }
 
-.menu-toggle div {
-    width: 30px;
-    height: 4px;
-    background-color: #333;
-    margin: 5px 0;
+    .caixa {
+        width: 100%;
+    }
+
+    .funcionalidades .caixa {
+        width: 100%;
+    }
+
+    .container {
+        max-width: 100%; /* Garante que ocupe toda a largura da tela */
+        padding: 10px; /* Menor padding em telas muito pequenas */
+        margin: 5px; /* Menor margem em dispositivos muito pequenos */
+    }
+
+    input, select {
+        padding: 8px; /* Menor padding */
+    }
+
+    button {
+        font-size: 14px; /* Tamanho de fonte reduzido */
+    }
 }
 
 /* Responsividade do menu */
@@ -58,6 +73,11 @@ nav a {
 
     .logo {
         margin-bottom: 10px;
+    }
+
+    .logo img {
+        width: 80px; /* Reduz o tamanho para telas menores */
+        height: 80px; /* Mantenha o mesmo valor que a largura para ficar quadrado */
     }
 
     nav ul {
@@ -80,6 +100,39 @@ nav a {
     .menu-toggle {
         display: flex;
     }
+
+    .container-main-image h1 {
+        font-size: 2rem;
+    }
+
+    .caixa {
+        width: calc(50% - 20px);
+    }
+
+    .funcionalidades .caixa {
+        width: calc(50% - 20px);
+    }
+
+    .container {
+        max-width: 100%; /* Garante que o formulário ocupe 100% da largura disponível */
+        padding: 15px; /* Ajuste o padding */
+        margin: 10px; /* Ajusta a margem */
+    }
+
+    input, select {
+        padding: 10px; /* Ajuste o padding para telas médias */
+        margin-bottom: 12px; /* Ajusta a margem entre os campos */
+    }
+
+    button {
+        font-size: 14px; /* Ajuste o tamanho da fonte para telas menores */
+    }
+
+    footer {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
 }
 
 /* Estilo para a classe logo */
@@ -90,21 +143,10 @@ nav a {
     border-radius: 8px; /* Opcional: Adiciona bordas arredondadas */
 }
 
-@media (max-width: 768px) {
-    .logo img {
-        width: 80px; /* Reduz o tamanho para telas menores */
-        height: 80px; /* Mantenha o mesmo valor que a largura para ficar quadrado */
-    }
-}
 
-@media (max-width: 480px) {
-    .logo img {
-        width: 60px; /* Reduz ainda mais o tamanho para telas muito pequenas */
-        height: 60px; /* Mantenha o mesmo valor que a largura para ficar quadrado */
-    }
-}
 
 /* Seção principal */
+
 .container-main {
     text-align: center;
     background-color: #26a65b;
@@ -136,12 +178,6 @@ nav a {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
-/* Responsividade do título */
-@media (max-width: 768px) {
-    .container-main-image h1 {
-        font-size: 2rem;
-    }
-}
 
 /* Seção de caixas */
 .caixas {
@@ -183,19 +219,6 @@ nav a {
     border-radius: 8px;
 }
 
-/* Ajustes para telas menores */
-@media (max-width: 768px) {
-    .caixa {
-        width: calc(50% - 20px);
-    }
-}
-
-@media (max-width: 480px) {
-    .caixa {
-        width: 100%;
-    }
-}
-
 /* Seção de funcionalidades */
 .funcionalidades {
     text-align: center;
@@ -213,18 +236,6 @@ nav a {
 .funcionalidades .caixa {
     width: calc(33.33% - 20px);
     min-width: 280px;
-}
-
-@media (max-width: 768px) {
-    .funcionalidades .caixa {
-        width: calc(50% - 20px);
-    }
-}
-
-@media (max-width: 480px) {
-    .funcionalidades .caixa {
-        width: 100%;
-    }
 }
 
 /* Imagens responsivas */
@@ -257,6 +268,7 @@ img {
     box-shadow: 0px 2px 10px black;
     padding: 20px;
     margin: 10px auto;
+    box-sizing: border-box; /* Garante que o padding seja incluído no cálculo da largura */
 }
 
 input, select {
@@ -264,18 +276,20 @@ input, select {
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 4px;
-    box-sizing: border-box;
+    box-sizing: border-box; /* Garante que o padding não cause overflow */
+    margin-bottom: 15px; /* Espaçamento entre os campos */
 }
 
 button {
     width: 100%;
     padding: 10px;
-    background-color: #007FBF;
+    background-color: green;
     color: #fff;
     font-size: 16px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    box-sizing: border-box; /* Garante que o padding do botão não cause overflow */
 }
 
 /* Rodapé responsivo */
@@ -303,15 +317,6 @@ footer p {
     margin: 0;
 }
 
-/* Ajuste do footer para telas menores */
-@media (max-width: 768px) {
-    footer {
-        flex-direction: column;
-        text-align: center;
-        gap: 10px;
-    }
-}
-
 /* Estilo para as imagens dos parceiros */
 .logos img {
     width: 100px; /* Defina o tamanho desejado */
@@ -319,18 +324,4 @@ footer p {
     object-fit:contain; /* Garante que a imagem preencha o espaço sem distorcer */
     border-radius: 8px; /* Opcional: Adiciona bordas arredondadas */
     margin: 10px; /* Espaçamento entre as imagens */
-}
-
-@media (max-width: 768px) {
-    .logos img {
-        width: 80px;
-        height: 80px;
-    }
-}
-
-@media (max-width: 480px) {
-    .logos img {
-        width: 60px;
-        height: 60px;
-    }
 }
